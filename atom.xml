@@ -4,7 +4,7 @@
   <title><![CDATA[dismory's Blog]]></title>
   <link href="http://dismory.github.io/atom.xml" rel="self"/>
   <link href="http://dismory.github.io/"/>
-  <updated>2013-06-06T02:26:35+08:00</updated>
+  <updated>2013-06-06T03:04:48+08:00</updated>
   <id>http://dismory.github.io/</id>
   <author>
     <name><![CDATA[dismory]]></name>
@@ -41,7 +41,7 @@
 </span><span class='line'>
 </span><span class='line'><span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="s">@&quot;foo&quot;</span><span class="p">.</span><span class="n">class</span><span class="p">);</span>
 </span><span class='line'><span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="err">@</span><span class="p">(</span><span class="s">&quot;bar&quot;</span><span class="p">).</span><span class="n">class</span><span class="p">);</span>
-</span><span class='line'><span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="err">@</span><span class="p">(</span><span class="n">obtain_c_string</span><span class="p">).</span><span class="n">class</span><span class="p">);</span>
+</span><span class='line'><span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="err">@</span><span class="p">(</span><span class="n">obtain_c_string</span><span class="p">()).</span><span class="n">class</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -87,9 +87,9 @@
 </span><span class='line'><span class="cp">#define Keypath(keypath) (strchr(#keypath, &#39;.&#39;) + 1)</span>
 </span><span class='line'>
 </span><span class='line'><span class="p">[</span><span class="n">objA</span> <span class="n">addObserver</span><span class="o">:</span><span class="n">objB</span>
-</span><span class='line'>       <span class="n">forKeyPath</span><span class="o">:</span><span class="err">@</span><span class="n">Keypath</span><span class="p">(</span><span class="n">ObjA</span><span class="p">.</span><span class="n">property1</span><span class="p">.</span><span class="n">property2</span><span class="p">)</span> <span class="c1">// 有代码提示，可以被重构扫描到</span>
+</span><span class='line'>       <span class="nl">forKeyPath:</span><span class="err">@</span><span class="n">Keypath</span><span class="p">(</span><span class="n">ObjA</span><span class="p">.</span><span class="n">property1</span><span class="p">.</span><span class="n">property2</span><span class="p">)</span> <span class="c1">// 有代码提示，可以被重构扫描到</span>
 </span><span class='line'>          <span class="nl">options:</span><span class="n">nil</span>
-</span><span class='line'>          <span class="n">context</span><span class="o">:</span><span class="n">nil</span><span class="p">];</span>
+</span><span class='line'>          <span class="nl">context:</span><span class="n">nil</span><span class="p">];</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
