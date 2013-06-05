@@ -4,7 +4,7 @@
   <title><![CDATA[dismory's Blog]]></title>
   <link href="http://dismory.github.io/atom.xml" rel="self"/>
   <link href="http://dismory.github.io/"/>
-  <updated>2013-06-05T13:20:48+08:00</updated>
+  <updated>2013-06-06T02:22:42+08:00</updated>
   <id>http://dismory.github.io/</id>
   <author>
     <name><![CDATA[dismory]]></name>
@@ -12,5 +12,95 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[说说 Objective-C 里的 @()]]></title>
+    <link href="http://dismory.github.io/blog/2013/06/06/talk-about-the-%40-in-objective-c/"/>
+    <updated>2013-06-06T00:39:00+08:00</updated>
+    <id>http://dismory.github.io/blog/2013/06/06/talk-about-the-@-in-objective-c</id>
+    <content type="html"><![CDATA[<h2>Intro</h2>
+
+<p>在 Objective-C 中我们可以用 <code>@"foo"</code> 来创建一个 <code>NSString</code> 常量，看起来似乎平淡无奇。</p>
+
+<p>但它背后其实比想象的精彩，<code>@</code> 可以被理解成一个特殊的宏，其接受一个 C 字符串作为参数，也可写作 <code>@("foo")</code>。</p>
+
+<p>之所以说 <code>@</code> 是一个特殊的宏，是因为其能根据传入的 C 字符串类型不同——C 字符串常量或 C 字符串——在运行时构建返回不同类型的 <code>NSString</code>，参见下面的代码：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="kt">char</span><span class="o">*</span> <span class="nf">obtain_c_string</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="s">&quot;c_string&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="s">@&quot;foo&quot;</span><span class="p">.</span><span class="n">class</span><span class="p">);</span>
+</span><span class='line'><span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="err">@</span><span class="p">(</span><span class="s">&quot;bar&quot;</span><span class="p">).</span><span class="n">class</span><span class="p">);</span>
+</span><span class='line'><span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="err">@</span><span class="p">(</span><span class="n">obtain_c_string</span><span class="p">).</span><span class="n">class</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>输出结果如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="mi">2013</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">05</span> <span class="mo">01</span><span class="o">:</span><span class="mi">14</span><span class="o">:</span><span class="mf">15.097</span> <span class="n">Sandbox</span><span class="p">[</span><span class="mi">45804</span><span class="o">:</span><span class="n">c07</span><span class="p">]</span> <span class="n">__NSCFConstantString</span>
+</span><span class='line'><span class="mi">2013</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">05</span> <span class="mo">01</span><span class="o">:</span><span class="mi">14</span><span class="o">:</span><span class="mf">15.098</span> <span class="n">Sandbox</span><span class="p">[</span><span class="mi">45804</span><span class="o">:</span><span class="n">c07</span><span class="p">]</span> <span class="n">__NSCFConstantString</span>
+</span><span class='line'><span class="mi">2013</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">05</span> <span class="mo">01</span><span class="o">:</span><span class="mi">14</span><span class="o">:</span><span class="mf">15.098</span> <span class="n">Sandbox</span><span class="p">[</span><span class="mi">45804</span><span class="o">:</span><span class="n">c07</span><span class="p">]</span> <span class="n">__NSCFString</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可见，如果传入的是 C 字符串常量，运行时构建的则为 <code>NSConstantString</code>；如果传入的是 C 字符串则创建的是 <code>NSString</code>。</p>
+
+<h2>Then?</h2>
+
+<p>你可能会问这么理解了又怎样？</p>
+
+<p>众所周知，Objective-C 代码里有很多地方需要我们把代码中的一些文法串写成字符串再作为传入参数，比如 KVO 中的 <code>keyPath</code> 参数往往就要传入形如 <code>propertyA.propertyB</code> 的字符串，从实用角度出发这有两个弊端：</p>
+
+<ul>
+<li>写字符串的时候没有代码提示，很容易写错</li>
+<li>即便一开始写对了，如果后来相关类重构了，<code>keyPath</code> 的参数便失效了，而 Xcode Refactor 无法扫描字符串</li>
+</ul>
+
+
+<p>当我们理解了 <code>@()</code>，再加上自定义的宏，上述两个问题便可迎刃而解。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * # 将宏的参数字符串化，C 函数 strchr 返回字符串中第一个 &#39;.&#39; 字符的位置</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="cp">#define Keypath(keypath) (strchr(#keypath, &#39;.&#39;) + 1)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">[</span><span class="n">objA</span> <span class="n">addObserver</span><span class="o">:</span><span class="n">objB</span>
+</span><span class='line'>       <span class="n">forKeyPath</span><span class="o">:</span><span class="err">@</span><span class="n">Keypath</span><span class="p">(</span><span class="n">ObjA</span><span class="p">.</span><span class="n">property1</span><span class="p">.</span><span class="n">property2</span><span class="p">)</span> <span class="c1">// 有代码提示，可以被重构扫描到</span>
+</span><span class='line'>          <span class="nl">options:</span><span class="n">nil</span>
+</span><span class='line'>          <span class="n">context</span><span class="o">:</span><span class="n">nil</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这个简单实现只算是抛砖引玉，除了 <code>@()</code> 配合自定义宏来字符串化代码中的文法串，更多的用法就有待在开发中不断发掘了。</p>
+
+<p><em>PS: 在即将完成这篇文章的时候我发现已有国外开发者利用 <code>@()</code> 特性配合自定义宏，全面系统的解决了上述问题，详情参见 <a href="https://github.com/jspahrsummers/libextobjc/blob/master/extobjc/EXTKeyPathCoding.h">libextobjc/EXTKeyPathCoding.h</a>。</em></p>
+
+<h2>Extra</h2>
+
+<p>此外，<code>@()</code> 还可以接受 int 字面量或 int 变量作为参数，有兴趣的读者可以自行感受下。</p>
+]]></content>
+  </entry>
   
 </feed>
