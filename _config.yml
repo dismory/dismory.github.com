@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://dismory.github.io
+url: http://dlog.dismory.com
 title: DLog
 subtitle: "Yet another blog of dismory, mainly on Objective-C Ruby and RubyMotion"
 author: dismory
@@ -69,7 +69,7 @@ github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: dismory
 twitter_tweet_button: true
 
 # Google +1
