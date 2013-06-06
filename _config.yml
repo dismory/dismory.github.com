@@ -3,9 +3,9 @@
 # ----------------------- #
 
 url: http://dismory.github.io
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+title: DLog
+subtitle: "Yet another blog of dismory, mainly on Objective-C Ruby and RubyMotion"
+author: dismory
 simple_search: http://google.com/search
 description:
 
