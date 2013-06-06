@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://dismory.github.io/blog/2013/06/06/talk-about-the-%40-in-objective-c/</loc>
+        <loc>http://dlog.dismory.com/blog/2013/06/06/talk-about-the-%40-in-objective-c/</loc>
         <lastmod>2013-06-06T18:42:53+08:00</lastmod>
     </url>
     <url>
-        <loc>http://dismory.github.io/blog/archives/</loc>
+        <loc>http://dlog.dismory.com/blog/archives/</loc>
         <lastmod>2013-06-06T18:42:53+08:00</lastmod>
     </url>
     <url>
-        <loc>http://dismory.github.io/</loc>
+        <loc>http://dlog.dismory.com/</loc>
         <lastmod>2013-06-06T18:42:53+08:00</lastmod>
     </url>
     <url>
-        <loc>http://dismory.github.io/robots.txt</loc>
+        <loc>http://dlog.dismory.com/robots.txt</loc>
         <lastmod>2013-06-05T13:01:02+08:00</lastmod>
     </url>
 </urlset>

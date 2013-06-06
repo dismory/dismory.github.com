@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://dismory.github.io/sitemap.xml 
+Sitemap: http://dlog.dismory.com/sitemap.xml 

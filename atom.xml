@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[DLog]]></title>
-  <link href="http://dismory.github.io/atom.xml" rel="self"/>
-  <link href="http://dismory.github.io/"/>
-  <updated>2013-06-06T18:43:00+08:00</updated>
-  <id>http://dismory.github.io/</id>
+  <link href="http://dlog.dismory.com/atom.xml" rel="self"/>
+  <link href="http://dlog.dismory.com/"/>
+  <updated>2013-06-07T00:49:40+08:00</updated>
+  <id>http://dlog.dismory.com/</id>
   <author>
     <name><![CDATA[dismory]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[说说 Objective-C 里的 @()]]></title>
-    <link href="http://dismory.github.io/blog/2013/06/06/talk-about-the-%40-in-objective-c/"/>
+    <link href="http://dlog.dismory.com/blog/2013/06/06/talk-about-the-%40-in-objective-c/"/>
     <updated>2013-06-06T00:39:00+08:00</updated>
-    <id>http://dismory.github.io/blog/2013/06/06/talk-about-the-@-in-objective-c</id>
+    <id>http://dlog.dismory.com/blog/2013/06/06/talk-about-the-@-in-objective-c</id>
     <content type="html"><![CDATA[<h2>Intro</h2>
 
 <p>在 Objective-C 中我们可以用 <code>@"foo"</code> 来创建一个 <code>NSString</code> 常量，看起来似乎平淡无奇。</p>
