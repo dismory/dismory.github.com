@@ -153,46 +153,12 @@
 
 <p>你可能会问这么理解了又怎样？</p>
 
-<p>众所周知，Objective-C 代码里有很多地方需要我们把代码中的一些文法串写成字符串再作为传入参数，比如 KVO 中的 <code>keyPath</code> 参数往往就要传入形如 <code>propertyA.propertyB</code> 的字符串，从实用角度出发这有两个弊端：</p>
-
-<ul>
-<li>写字符串的时候没有代码提示，很容易写错</li>
-<li>即便一开始写对了，如果后来相关类重构了，<code>keyPath</code> 的参数便失效了，而 Xcode Refactor 无法扫描字符串</li>
-</ul>
-
-
-<p>当我们理解了 <code>@()</code>，再加上自定义的宏，上述两个问题便可迎刃而解。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * # 将宏的参数字符串化，C 函数 strchr 返回字符串中第一个 &#39;.&#39; 字符的位置</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="cp">#define Keypath(keypath) (strchr(#keypath, &#39;.&#39;) + 1)</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">[</span><span class="n">objA</span> <span class="n">addObserver</span><span class="o">:</span><span class="n">objB</span>
-</span><span class='line'>       <span class="nl">forKeyPath:</span><span class="err">@</span><span class="n">Keypath</span><span class="p">(</span><span class="n">ObjA</span><span class="p">.</span><span class="n">property1</span><span class="p">.</span><span class="n">property2</span><span class="p">)</span> <span class="c1">// 有代码提示，可以被重构扫描到</span>
-</span><span class='line'>          <span class="nl">options:</span><span class="n">nil</span>
-</span><span class='line'>          <span class="nl">context:</span><span class="n">nil</span><span class="p">];</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>这个简单实现只算是抛砖引玉，除了 <code>@()</code> 配合自定义宏来字符串化代码中的文法串，更多的用法就有待在开发中不断发掘了。</p>
-
-<p><em>PS: 在即将完成这篇文章的时候我发现已有国外开发者利用 <code>@()</code> 特性配合自定义宏，全面系统的解决了上述问题，详情参见 <a href="https://github.com/jspahrsummers/libextobjc/blob/master/extobjc/EXTKeyPathCoding.h">libextobjc/EXTKeyPathCoding.h</a>。</em></p>
-
-<h2>Extra</h2>
-
-<p>此外，<code>@()</code> 还可以接受 int 字面量或 int 变量作为参数，有兴趣的读者可以自行感受下。</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/06/talk-about-the-%40-in-objective-c/">Read on &rarr;</a>
+    </footer>
   
 
 

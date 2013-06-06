@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Objective-C | DLog]]></title>
   <link href="http://dismory.github.io/blog/categories/objective-c/atom.xml" rel="self"/>
   <link href="http://dismory.github.io/"/>
-  <updated>2013-06-06T13:07:57+08:00</updated>
+  <updated>2013-06-06T18:43:00+08:00</updated>
   <id>http://dismory.github.io/</id>
   <author>
     <name><![CDATA[dismory]]></name>
@@ -53,6 +53,9 @@ NSLog(@&ldquo;%@&rdquo;, @(obtain_c_string()).class);
 <h2>Then?</h2>
 
 <p>你可能会问这么理解了又怎样？</p>
+
+<!-- more -->
+
 
 <p>众所周知，Objective-C 代码里有很多地方需要我们把代码中的一些文法串写成字符串再作为传入参数，比如 KVO 中的 <code>keyPath</code> 参数往往就要传入形如 <code>propertyA.propertyB</code> 的字符串，从实用角度出发这有两个弊端：</p>
 
