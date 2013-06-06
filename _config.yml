@@ -93,6 +93,10 @@ delicious_count: 3
 disqus_short_name:
 disqus_show_comment_count: false
 
+# Duoshuo Comments
+duoshuo_comments: true
+duoshuo_short_name: dlog
+
 # Google Analytics
 google_analytics_tracking_id:
 
