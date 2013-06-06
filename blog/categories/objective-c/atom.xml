@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Objective-C | dismory's Blog]]></title>
+  <title><![CDATA[Category: Objective-C | DLog]]></title>
   <link href="http://dismory.github.io/blog/categories/objective-c/atom.xml" rel="self"/>
   <link href="http://dismory.github.io/"/>
-  <updated>2013-06-06T03:04:48+08:00</updated>
+  <updated>2013-06-06T10:56:31+08:00</updated>
   <id>http://dismory.github.io/</id>
   <author>
     <name><![CDATA[dismory]]></name>
