@@ -111,6 +111,7 @@ Jun 06 2013 posted in Objective-C, iOS Recent Posts 说说 Objective-C 里的 @(
   
 </article>
 
+
 </div>
 
 <aside class="sidebar">
@@ -155,6 +156,19 @@ Jun 06 2013 posted in Objective-C, iOS Recent Posts 说说 Objective-C 里的 @(
 </footer>
   
 
+<script type="text/javascript">
+      var disqus_shortname = 'dmlog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
 
 
 
@@ -171,6 +185,55 @@ Jun 06 2013 posted in Objective-C, iOS Recent Posts 说说 Objective-C 里的 @(
     })();
   </script>
 
+
+
+
+
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"dlog"};
+    
+        
+        var MY_DUOSHUO;
+        if (typeof MY_DUOSHUO == 'undefined') {
+            MY_DUOSHUO = function() {
+                var h = {}, a = $("a[href*='#ds-thread']"), b = [];
+                h.getCount = function() {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';
+                    ds.async = true;
+                    ds.src = 'http://api.duoshuo.com/threads/counts.jsonp?short_name=' + duoshuoQuery.short_name + '&callback=MY_DUOSHUO.displayCount&threads=';
+                    ds.charset = 'UTF-8';
+                    a.each(function(index, element) {
+                        b.push(a.eq(index).attr('href').split('#')[0]);
+                    });
+                    ds.src += b.join(',');
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                };
+                h.displayCount = function (result) {
+                    if (result.code === 0) {
+                        var response = result.response;
+                        a.each(function(index, element) {
+                            var thread_key = a.eq(index).attr('href').split('#')[0];
+                            var thread = response[thread_key];
+                            var commentCount = 0;
+                            var reactionCount = 0;
+                            if (typeof thread != 'undefined') {
+                                commentCount = thread.comments;
+                                
+                                reactionCount = thread.likes + thread.weibo_reposts + thread.qqt_reposts;
+                            }
+                            element.innerHTML = commentCount + " COMMENTS AND " + reactionCount + " REACTIONS";
+                        });
+                    };
+                };
+                return h;
+            }();
+        };
+        (function() {
+            MY_DUOSHUO.getCount();
+        })();
+    
+</script>
 
 
 
