@@ -4,6 +4,7 @@ title: "说说 Objective-C 里的 @()"
 date: 2013-06-06 00:39
 comments: true
 categories: [iOS, Objective-C]
+lang: "cn"
 ---
 
 ## Intro

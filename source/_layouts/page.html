@@ -24,10 +24,16 @@ layout: default
     </footer>
   {% endunless %}
 </article>
-{% if site.disqus_short_name and page.comments == true %}
+{% if site.disqus_short_name and page.comments == true and page.lang == "en" %}
   <section>
     <h1>Comments</h1>
     <div id="disqus_thread" aria-live="polite">{% include post/disqus_thread.html %}</div>
+  </section>
+{% endif %}
+{% if site.duoshuo_short_name and site.duoshuo_comments == true and page.comments == true and page.lang != "en" %}
+  <section>
+    <h1>Comments</h1>
+    <div id="ds-thread" class="ds-thread" aria-live="polite" data-thread-key="{{ page.url }}">{% include custom/post/duoshuo_thread.html %}</div>
   </section>
 {% endif %}
 </div>

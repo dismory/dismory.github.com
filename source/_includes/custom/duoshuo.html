@@ -1,0 +1,57 @@
+{% comment %} Load script if disquss duoshuo are enabled and `page.comments` is either empty (index) or set to true {% endcomment %}
+{% if site.duoshuo_short_name and page.comments != false and page.lang != "en" %}
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"{{ site.duoshuo_short_name }}"};
+    {% if page.comments == true %}
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';
+            ds.async = true;
+            ds.src = 'http://static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    {% else %}
+        {% comment %} As `page.comments` is empty, we must be on the index page. {% endcomment %}
+        var MY_DUOSHUO;
+        if (typeof MY_DUOSHUO == 'undefined') {
+            MY_DUOSHUO = function() {
+                var h = {}, a = $("a[href*='#ds-thread']"), b = [];
+                h.getCount = function() {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';
+                    ds.async = true;
+                    ds.src = 'http://api.duoshuo.com/threads/counts.jsonp?short_name=' + duoshuoQuery.short_name + '&callback=MY_DUOSHUO.displayCount&threads=';
+                    ds.charset = 'UTF-8';
+                    a.each(function(index, element) {
+                        b.push(a.eq(index).attr('href').split('#')[0]);
+                    });
+                    ds.src += b.join(',');
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                };
+                h.displayCount = function (result) {
+                    if (result.code === 0) {
+                        var response = result.response;
+                        a.each(function(index, element) {
+                            var thread_key = a.eq(index).attr('href').split('#')[0];
+                            var thread = response[thread_key];
+                            var commentCount = 0;
+                            var reactionCount = 0;
+                            if (typeof thread != 'undefined') {
+                                commentCount = thread.comments;
+                                {% comment %} Only taking likes, weibo repost and tencent weibo repost into account {% endcomment %}
+                                reactionCount = thread.likes + thread.weibo_reposts + thread.qqt_reposts;
+                            }
+                            element.innerHTML = commentCount + " COMMENTS AND " + reactionCount + " REACTIONS";
+                        });
+                    };
+                };
+                return h;
+            }();
+        };
+        (function() {
+            MY_DUOSHUO.getCount();
+        })();
+    {% endif %}
+</script>
+{% endif %}

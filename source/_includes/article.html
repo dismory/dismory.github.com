@@ -8,11 +8,11 @@
     {% unless page.meta == false %}
       <p class="meta">
         {% include post/date.html %}{{ time }}
-        {% if site.disqus_short_name and page.comments != false and post.comments != false and site.disqus_show_comment_count == true %}
+        {% if site.disqus_short_name and page.comments != false and post.comments != false and site.disqus_show_comment_count == true and post.lang == "en" %}
          | <a href="{% if index %}{{ root_url }}{{ post.url }}{% endif %}#disqus_thread">Comments</a>
         {% endif %}
-        {% if site.duoshuo_short_name and page.comments != false and post.comments != false and site.duoshuo_comments == true %}
-         | <a href="{% if index %}{{ root_url }}{{ post.url }}{% endif %}#comments">Comments</a>
+        {% if site.duoshuo_short_name and page.comments != false and post.comments != false and site.duoshuo_comments == true and post.lang != "en" %}
+         | <a href="{% if index %}{{ root_url }}{{ post.url }}{% endif %}#ds-thread">Comments</a>
         {% endif %}
       </p>
     {% endunless %}
