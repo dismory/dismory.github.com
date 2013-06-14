@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>DLog</title>
+  <title>How to create an OS X Console App with RubyMotion - DLog</title>
   <meta name="author" content="dismory">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dlog.dismory.com">
+  <link rel="canonical" href="http://dlog.dismory.com/blog/2013/06/10/how-to-create-a-mac-console-app-with-rubymotion">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="DLog" type="application/atom+xml">
@@ -27,7 +27,7 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!-- Avoiding Sina iAsk redirection -->
-<meta http-equiv="mobile-agent" content="format=xhtml; url=http://dlog.dismory.com/index.html">
+<meta http-equiv="mobile-agent" content="format=xhtml; url=http://dlog.dismory.com/blog/2013/06/10/how-to-create-a-mac-console-app-with-rubymotion/">
 <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -78,15 +78,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/06/10/how-to-create-a-mac-console-app-with-rubymotion/">How to Create an OS X Console App With RubyMotion</a></h1>
+      <h1 class="entry-title">How to Create an OS X Console App With RubyMotion</h1>
     
     
       <p class="meta">
@@ -104,15 +101,15 @@
 
 <time datetime="2013-06-10T22:52:00+08:00" pubdate data-updated="true">Jun 10<span>th</span>, 2013</time>
         
-         | <a href="/blog/2013/06/10/how-to-create-a-mac-console-app-with-rubymotion/#disqus_thread">Comments</a>
         
+         | <a href="#ds-thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Frankly speaking, the approaches I am talking about here is to create a Mac console-like application as we are not able to build a real Mac console application using RubyMotion when I post this article.</p>
+<div class="entry-content"><p>Frankly speaking, the approaches I am talking about here is to create a Mac console-like application as we are not able to build a real Mac console application using RubyMotion when I post this article.</p>
 
 <p>It takes only 3 steps, let&rsquo;s get started.</p>
 
@@ -214,22 +211,16 @@
 
 <p>That&rsquo;s it.</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/06/06/talk-about-the-%40-in-objective-c/">说说 Objective-C 里的 @()</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">dismory</span></span>
+
+      
 
 
 
@@ -241,77 +232,39 @@
   
 
 
-<time datetime="2013-06-06T00:39:00+08:00" pubdate data-updated="true">Jun 6<span>th</span>, 2013</time>
-        
-        
-         | <a href="/blog/2013/06/06/talk-about-the-%40-in-objective-c/#ds-thread">Comments</a>
-        
-      </p>
+<time datetime="2013-06-10T22:52:00+08:00" pubdate data-updated="true">Jun 10<span>th</span>, 2013</time>
+      
+
+
+    </p>
     
-  </header>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://dlog.dismory.com/blog/2013/06/10/how-to-create-a-mac-console-app-with-rubymotion/" data-via="dismory" data-counturl="http://dlog.dismory.com/blog/2013/06/10/how-to-create-a-mac-console-app-with-rubymotion/" >Tweet</a>
+  
+  
+  
+</div>
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/06/06/talk-about-the-%40-in-objective-c/" title="Previous Post: 说说 Objective-C 里的 @()">&laquo; 说说 Objective-C 里的 @()</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-  <div class="entry-content"><h2>Intro</h2>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
-<p>在 Objective-C 中我们可以用 <code>@"foo"</code> 来创建一个 <code>NSString</code> 常量，看起来似乎平淡无奇。</p>
-
-<p>但它背后其实比想象的精彩，<code>@</code> 可以被理解成一个特殊的宏，其接受一个 C 字符串作为参数，也可写作 <code>@("foo")</code>。</p>
-
-<p>之所以说 <code>@</code> 是一个特殊的宏，是因为其能根据传入的 C 字符串类型不同——C 字符串常量或 C 字符串——在运行时构建返回不同类型的 <code>NSString</code>，参见下面的代码：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="kt">char</span><span class="o">*</span> <span class="nf">obtain_c_string</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="k">return</span> <span class="s">&quot;c_string&quot;</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="s">@&quot;foo&quot;</span><span class="p">.</span><span class="n">class</span><span class="p">);</span>
-</span><span class='line'><span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="err">@</span><span class="p">(</span><span class="s">&quot;bar&quot;</span><span class="p">).</span><span class="n">class</span><span class="p">);</span>
-</span><span class='line'><span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="err">@</span><span class="p">(</span><span class="n">obtain_c_string</span><span class="p">()).</span><span class="n">class</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>输出结果如下：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="mi">2013</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">05</span> <span class="mo">01</span><span class="o">:</span><span class="mi">14</span><span class="o">:</span><span class="mf">15.097</span> <span class="n">Sandbox</span><span class="p">[</span><span class="mi">45804</span><span class="o">:</span><span class="n">c07</span><span class="p">]</span> <span class="n">__NSCFConstantString</span>
-</span><span class='line'><span class="mi">2013</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">05</span> <span class="mo">01</span><span class="o">:</span><span class="mi">14</span><span class="o">:</span><span class="mf">15.098</span> <span class="n">Sandbox</span><span class="p">[</span><span class="mi">45804</span><span class="o">:</span><span class="n">c07</span><span class="p">]</span> <span class="n">__NSCFConstantString</span>
-</span><span class='line'><span class="mi">2013</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">05</span> <span class="mo">01</span><span class="o">:</span><span class="mi">14</span><span class="o">:</span><span class="mf">15.098</span> <span class="n">Sandbox</span><span class="p">[</span><span class="mi">45804</span><span class="o">:</span><span class="n">c07</span><span class="p">]</span> <span class="n">__NSCFString</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>可见，如果传入的是 C 字符串常量，运行时构建的则为 <code>NSConstantString</code>；如果传入的是 C 字符串则创建的是 <code>NSString</code>。</p>
-
-<h2>Then?</h2>
-
-<p>你可能会问这么理解了又怎样？</p>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/06/06/talk-about-the-%40-in-objective-c/">Read on &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -347,6 +300,7 @@
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -361,7 +315,10 @@
       var disqus_shortname = 'dmlog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://dlog.dismory.com/blog/2013/06/10/how-to-create-a-mac-console-app-with-rubymotion/';
+        var disqus_url = 'http://dlog.dismory.com/blog/2013/06/10/how-to-create-a-mac-console-app-with-rubymotion/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -389,52 +346,6 @@
 
 
 
-
-<script type="text/javascript">
-    var duoshuoQuery = {short_name:"dlog"};
-    
-        
-        var MY_DUOSHUO;
-        if (typeof MY_DUOSHUO == 'undefined') {
-            MY_DUOSHUO = function() {
-                var h = {}, a = $("a[href*='#ds-thread']"), b = [];
-                h.getCount = function() {
-                    var ds = document.createElement('script');
-                    ds.type = 'text/javascript';
-                    ds.async = true;
-                    ds.src = 'http://api.duoshuo.com/threads/counts.jsonp?short_name=' + duoshuoQuery.short_name + '&callback=MY_DUOSHUO.displayCount&threads=';
-                    ds.charset = 'UTF-8';
-                    a.each(function(index, element) {
-                        b.push(a.eq(index).attr('href').split('#')[0]);
-                    });
-                    ds.src += b.join(',');
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-                };
-                h.displayCount = function (result) {
-                    if (result.code === 0) {
-                        var response = result.response;
-                        a.each(function(index, element) {
-                            var thread_key = a.eq(index).attr('href').split('#')[0];
-                            var thread = response[thread_key];
-                            var commentCount = 0;
-                            var reactionCount = 0;
-                            if (typeof thread != 'undefined') {
-                                commentCount = thread.comments;
-                                
-                                reactionCount = thread.likes + thread.weibo_reposts + thread.qqt_reposts;
-                            }
-                            element.innerHTML = commentCount + " COMMENTS AND " + reactionCount + " REACTIONS";
-                        });
-                    };
-                };
-                return h;
-            }();
-        };
-        (function() {
-            MY_DUOSHUO.getCount();
-        })();
-    
-</script>
 
 
 

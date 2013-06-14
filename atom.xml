@@ -4,7 +4,7 @@
   <title><![CDATA[DLog]]></title>
   <link href="http://dlog.dismory.com/atom.xml" rel="self"/>
   <link href="http://dlog.dismory.com/"/>
-  <updated>2013-06-12T02:29:53+08:00</updated>
+  <updated>2013-06-15T00:45:09+08:00</updated>
   <id>http://dlog.dismory.com/</id>
   <author>
     <name><![CDATA[dismory]]></name>
@@ -12,6 +12,115 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to create an OS X Console App with RubyMotion]]></title>
+    <link href="http://dlog.dismory.com/blog/2013/06/10/how-to-create-a-mac-console-app-with-rubymotion/"/>
+    <updated>2013-06-10T22:52:00+08:00</updated>
+    <id>http://dlog.dismory.com/blog/2013/06/10/how-to-create-a-mac-console-app-with-rubymotion</id>
+    <content type="html"><![CDATA[<p>Frankly speaking, the approaches I am talking about here is to create a Mac console-like application as we are not able to build a real Mac console application using RubyMotion when I post this article.</p>
+
+<p>It takes only 3 steps, let&rsquo;s get started.</p>
+
+<p>Firstly, create a RubyMotion project using OS X template. In my example, I call the project it <strong>ConsoleMotion</strong>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>motion create --template<span class="o">=</span>osx ConsoleMotion
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Secondly, edit the <strong>Rakefile</strong> and add the following lines of code:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># -*- coding: utf-8 -*-</span>
+</span><span class='line'><span class="vg">$:</span><span class="o">.</span><span class="n">unshift</span><span class="p">(</span><span class="s2">&quot;/Library/RubyMotion/lib&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;motion/project/template/osx&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Motion</span><span class="p">:</span><span class="ss">:Project</span><span class="o">::</span><span class="no">App</span><span class="o">.</span><span class="n">setup</span> <span class="k">do</span> <span class="o">|</span><span class="n">app</span><span class="o">|</span>
+</span><span class='line'>  <span class="c1"># Use `rake config&#39; to see complete project settings.</span>
+</span><span class='line'>  <span class="n">app</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;ConsoleMotion&#39;</span>
+</span><span class='line'>  <span class="n">app</span><span class="o">.</span><span class="n">info_plist</span><span class="o">[</span><span class="s1">&#39;LSUIElement&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span> <span class="c1"># Add this line</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When the <code>LSUIElement</code> property of your application&rsquo;s info plist set to <code>true</code>, your app will not appear in the Dock as the <a href="http://developer.apple.com/library/ios/#documentation/general/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html">documentation</a> says.</p>
+
+<p>Thirdly, edit the <strong>app_delegate.rb</strong> and implement <code>applicationDidFinishLaunching</code> method as follows:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">AppDelegate</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">applicationDidFinishLaunching</span><span class="p">(</span><span class="n">notification</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">args</span> <span class="o">=</span> <span class="no">NSProcessInfo</span><span class="o">.</span><span class="n">processInfo</span><span class="o">.</span><span class="n">arguments</span> <span class="c1"># get the arguments passing to your console-like app</span>
+</span><span class='line'>    <span class="n">str</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;hello world&quot;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1"># do whatever you want here</span>
+</span><span class='line'>    <span class="nb">p</span> <span class="n">str</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nb">exit</span> <span class="c1"># exit the app when you finish your job</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>the key point is the <code>exit</code> function which quits your app when jobs finish like what the normal console app do.</p>
+
+<p>Next, build your app and run the executable:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>rake
+</span><span class='line'>     Build ./build/MacOSX-10.8-Development
+</span><span class='line'>   Compile ./app/app_delegate.rb
+</span><span class='line'>   Compile ./app/menu.rb
+</span><span class='line'>    Create ./build/MacOSX-10.8-Development/ConsoleMotion.app/Contents
+</span><span class='line'>    Create ./build/MacOSX-10.8-Development/ConsoleMotion.app/Contents/MacOS
+</span><span class='line'>      Link ./build/MacOSX-10.8-Development/ConsoleMotion.app/Contents/MacOS/ConsoleMotion
+</span><span class='line'>    Create ./build/MacOSX-10.8-Development/ConsoleMotion.app/Contents/Info.plist
+</span><span class='line'>    Create ./build/MacOSX-10.8-Development/ConsoleMotion.app/Contents/PkgInfo
+</span><span class='line'>      Copy ./resources/Credits.rtf
+</span><span class='line'>    Create ./build/MacOSX-10.8-Development/ConsoleMotion.dSYM
+</span><span class='line'>       Run ./build/MacOSX-10.8-Development/ConsoleMotion.app/Contents/MacOS/ConsoleMotion
+</span><span class='line'><span class="s2">&quot;hello world&quot;</span>
+</span><span class='line'><span class="nv">$ </span>./build/MacOSX-10.8-Development/ConsoleMotion.app/Contents/MacOS/ConsoleMotion <span class="s2">&quot;we&#39;re done&quot;</span>
+</span><span class='line'><span class="s2">&quot;we&#39;re done&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That&rsquo;s it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[说说 Objective-C 里的 @()]]></title>
