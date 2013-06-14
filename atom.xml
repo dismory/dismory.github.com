@@ -4,7 +4,7 @@
   <title><![CDATA[DLog]]></title>
   <link href="http://dlog.dismory.com/atom.xml" rel="self"/>
   <link href="http://dlog.dismory.com/"/>
-  <updated>2013-06-15T00:47:50+08:00</updated>
+  <updated>2013-06-15T00:48:53+08:00</updated>
   <id>http://dlog.dismory.com/</id>
   <author>
     <name><![CDATA[dismory]]></name>
@@ -52,7 +52,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>When the <code>LSUIElement</code> property of your application&rsquo;s info plist set to <code>true</code>, your app will not appear in the Dock as the <a href="http://developer.apple.com/library/ios/#documentation/general/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html">documentation</a> says.</p>
+<p>When the <code>LSUIElement</code> property of your application&rsquo;s info plist is set to <code>true</code>, your app will not appear in the Dock as the <a href="http://developer.apple.com/library/ios/#documentation/general/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html">documentation</a> says.</p>
 
 <p>Thirdly, edit the <strong>app_delegate.rb</strong> and implement <code>applicationDidFinishLaunching</code> method as follows:</p>
 
@@ -81,7 +81,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>the key point is the <code>exit</code> function which quits your app when jobs finish like what the normal console app do.</p>
+<p>the key point is the <code>exit</code> function which quits your app when jobs finish like what the normal console apps do.</p>
 
 <p>Next, build your app and run the executable:</p>
 
