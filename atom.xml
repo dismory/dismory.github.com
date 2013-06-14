@@ -4,7 +4,7 @@
   <title><![CDATA[DLog]]></title>
   <link href="http://dlog.dismory.com/atom.xml" rel="self"/>
   <link href="http://dlog.dismory.com/"/>
-  <updated>2013-06-15T00:48:53+08:00</updated>
+  <updated>2013-06-15T00:50:21+08:00</updated>
   <id>http://dlog.dismory.com/</id>
   <author>
     <name><![CDATA[dismory]]></name>
@@ -18,7 +18,7 @@
     <link href="http://dlog.dismory.com/blog/2013/06/10/how-to-create-a-mac-console-app-with-rubymotion/"/>
     <updated>2013-06-10T22:52:00+08:00</updated>
     <id>http://dlog.dismory.com/blog/2013/06/10/how-to-create-a-mac-console-app-with-rubymotion</id>
-    <content type="html"><![CDATA[<p>Frankly speaking, the approaches I am talking about here is to create a Mac console-like application as we are not able to build a real Mac console application using RubyMotion when I post this article.</p>
+    <content type="html"><![CDATA[<p>Frankly speaking, the approach I am talking about here is to create a Mac console-like application as we are not able to build a real Mac console application using RubyMotion when I post this article.</p>
 
 <p>It takes only 3 steps, let&rsquo;s get started.</p>
 
