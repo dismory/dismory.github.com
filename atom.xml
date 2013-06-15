@@ -4,7 +4,7 @@
   <title><![CDATA[DLog]]></title>
   <link href="http://dlog.dismory.com/atom.xml" rel="self"/>
   <link href="http://dlog.dismory.com/"/>
-  <updated>2013-06-15T00:50:21+08:00</updated>
+  <updated>2013-06-15T11:13:23+08:00</updated>
   <id>http://dlog.dismory.com/</id>
   <author>
     <name><![CDATA[dismory]]></name>
@@ -18,18 +18,18 @@
     <link href="http://dlog.dismory.com/blog/2013/06/10/how-to-create-a-mac-console-app-with-rubymotion/"/>
     <updated>2013-06-10T22:52:00+08:00</updated>
     <id>http://dlog.dismory.com/blog/2013/06/10/how-to-create-a-mac-console-app-with-rubymotion</id>
-    <content type="html"><![CDATA[<p>Frankly speaking, the approach I am talking about here is to create a Mac console-like application as we are not able to build a real Mac console application using RubyMotion when I post this article.</p>
+    <content type="html"><![CDATA[<p>The approach I introduce here is to create a Mac console-like application, rather than a real Mac console application, since we all know it&rsquo;s not possible doing so with RubyMotion.</p>
 
-<p>It takes only 3 steps, let&rsquo;s get started.</p>
+<p>We just need 3 steps to get there:</p>
 
-<p>Firstly, create a RubyMotion project using OS X template. In my example, I call it <strong>ConsoleMotion</strong>:</p>
+<p>Step 1. Let&rsquo;s create a RubyMotion project using OS X templete. In my example, let&rsquo;s call it <strong>ConsoleMotion</strong> as follows.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>motion create --template<span class="o">=</span>osx ConsoleMotion
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Secondly, edit the <strong>Rakefile</strong> and add the following lines of code:</p>
+<p>Step 2. Edit the <strong>Rakefile</strong> with lines of code as follows.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -52,9 +52,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>When the <code>LSUIElement</code> property of your application&rsquo;s info plist is set to <code>true</code>, your app will not appear in the Dock as the <a href="http://developer.apple.com/library/ios/#documentation/general/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html">documentation</a> says.</p>
+<p>When the <code>LSUIElement</code> property of your application’s info plist is set to true, your app will not appear in the Dock as the <a href="http://developer.apple.com/library/ios/#documentation/general/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html">documentation</a> says.</p>
 
-<p>Thirdly, edit the <strong>app_delegate.rb</strong> and implement <code>applicationDidFinishLaunching</code> method as follows:</p>
+<p>Step 3. Edit the <strong>app_delegate.rb</strong> and implement <code>applicationDidFinishLaunching</code> method as follows:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -118,7 +118,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>That&rsquo;s it.</p>
+<p>Then, we are done.</p>
 ]]></content>
   </entry>
   
